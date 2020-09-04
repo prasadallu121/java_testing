@@ -3,7 +3,7 @@ node {
   git 'https://github.com/prasadallu121/java_testing'
   }
   stage ('Maven-Build') {
-  sh 'my-maven clean install package'
+  sh 'mvn clean install package'
   }
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
