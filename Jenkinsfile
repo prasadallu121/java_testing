@@ -6,7 +6,7 @@ node {
   def maven = tool name: 'my-maven', type: 'maven'
   sh "${maven}/bin/mvn clean package install"
   }
-  stage('SonarQube analysis') {
+  stage('SonarQube-analysis') {
   def maven = tool name: 'my-maven', type: 'maven'
   withSonarQubeEnv('my-sonar') {
   sh "${maven}/bin/mvn sonar:sonar"
