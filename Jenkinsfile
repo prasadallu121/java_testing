@@ -5,7 +5,13 @@ git 'https://github.com/prasadallu121/java_testing'
 stage ('Build Package Maven') {
 sh 'mvn clean package'
 }
-  stage ('Email Notification') {
+
+stage('SonarQube analysis') {
+  withSonarQubeEnv('sonar') {
+      sh 'mvn sonar:sonar'
+    }
+}  
+stage ('Email Notification') {
     
 emailext body: '''Hi team,
 
