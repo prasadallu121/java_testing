@@ -12,13 +12,14 @@ node {
   sh "${maven}/bin/mvn sonar:sonar"
   }
   }
-  //stage("Quality Gate-check") {
-  //steps {
-  //timeout(time: 1, unit: 'HOURS') {
-  //waitForQualityGate abortPipeline: true
- // }
-  //}
-  //}
+  stage("Quality Gate"){
+  timeout(time: 1, unit: 'HOURS') {
+  def qg = waitForQualityGate()
+  if (qg.status != 'OK') {
+  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+  }
+  }
+  }
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
   This is maven testing project.
