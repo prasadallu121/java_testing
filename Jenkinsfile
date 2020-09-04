@@ -12,13 +12,13 @@ node {
   sh "${maven}/bin/mvn sonar:sonar"
   }
   }
-  stage("Quality Gate-check") {
-  steps {
-  timeout(time: 1, unit: 'HOURS') {
-  waitForQualityGate abortPipeline: true
-  }
-  }
-  }
+  //stage("Quality Gate-check") {
+  //steps {
+  //timeout(time: 1, unit: 'HOURS') {
+  //waitForQualityGate abortPipeline: true
+ // }
+  //}
+  //}
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
   This is maven testing project.
