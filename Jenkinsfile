@@ -19,6 +19,7 @@ node {
   error "Pipeline aborted due to quality gate failure: ${qg.status}"
   }
   }
+  }
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
   This is maven testing project.
