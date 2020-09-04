@@ -4,7 +4,7 @@ node {
   }
   stage ('Maven-Build') {
     def maven = tool name: 'my-maven', type: 'maven'
-    sh "${maven} clean package install"
+    sh "${maven}/bin/mvn clean package install"
   }
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
