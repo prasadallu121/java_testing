@@ -12,16 +12,11 @@ node {
   sh "${maven}/bin/mvn sonar:sonar"
   }
   }
-  stage("Quality-Gate-check"){
+  stage("Quality Gate"){
   timeout(time: 1, unit: 'HOURS') {
   def qg = waitForQualityGate()
   if (qg.status != 'OK') {
   error "Pipeline aborted due to quality gate failure: ${qg.status}"
-  emailext body: '''Hi Team,
-  Project is failed.
-  Regards,
-  Jenkins Team''', subject: 'Maven Testing Project', to: 'prasad.allu121@gmail.com'
-  }
   }
   }
   stage ('Email-Notification') {
