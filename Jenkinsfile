@@ -12,7 +12,7 @@ node {
   sh "${maven}/bin/mvn sonar:sonar"
   }
   }
-  stage("Quality Gate check"){
+  stage("Quality-Gate-check"){
   timeout(time: 1, unit: 'HOURS') {
   def qg = waitForQualityGate()
   if (qg.status != 'OK') {
