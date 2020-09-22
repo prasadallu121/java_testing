@@ -23,7 +23,7 @@ node {
   stage ('Email-Notification') {
   emailext body: '''Hi Team,
   This is maven testing project.
-  Regards,
+  Regards,,
   Jenkins Team''', subject: 'Maven Testing Project', to: 'prasad.allu121@gmail.com'
   }
 }
