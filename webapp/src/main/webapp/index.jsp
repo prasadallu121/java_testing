@@ -1,1 +1,1 @@
-<h1> Welcome SHASHANK & PRAGNA SREE....., Congratulations  !!  ....... </h1>
+<h1> Welcome SHASHANK & PRAGNA SREE.., Congratulations  !!  ....... </h1>
